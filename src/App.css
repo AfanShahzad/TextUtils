@@ -27,6 +27,9 @@
 .App-link {
   color: #61dafb;
 }
+.alert{
+  animation: d-alert 2s forwards ease ;
+}
 
 @keyframes App-logo-spin {
   from {
@@ -34,5 +37,19 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+@keyframes d-alert {
+  0%{
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  25%,75% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-30px);
+    opacity: 0;
   }
 }
