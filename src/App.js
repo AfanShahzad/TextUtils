@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
@@ -58,16 +58,24 @@ function App() {
   };
 
   const [alert, setAlert] = useState(null);
+  const [key, setKey] = useState(0);
+  const timeoutRef = useRef(null);
 
   const showAlert = (m, t) => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current)
+    }
+
     setAlert({
       msg: m,
       type: t,
     });
+    setKey(prev=>prev+1)
+
+    timeoutRef.current= setTimeout(() => {
+      setAlert(null);
+    }, 2000);
   };
-  setTimeout(() => {
-    setAlert(null);
-  }, 2000);
 
   return (
     <React.Fragment>
@@ -80,7 +88,7 @@ function App() {
             mode={mode}
             toggleMode={toggleMode}
           />
-          <Alert alert={alert} />
+          <Alert alert={alert} key={key}/>
         </div>
         {/* <Routes> */}
           {/* <Route

@@ -45,21 +45,23 @@ export default function TexthtmlForm(props) {
         </div>
 
         <div className="d-flex justify-content-between">
-          <div className="btn btn-outline-success" onClick={handleUpClick}>
+          <button disabled={text.length===0}  className="btn btn-outline-success" onClick={handleUpClick}>
             Convert to UpperCase
-          </div>
-          <div
+          </button>
+          <button
+            disabled={text.length===0}
             className="btn btn-outline-success"
             onClick={handleLowClick}
           >
             Convert to LowerCase
-          </div>
-          <div
+          </button>
+          <button
+            disabled={text.length===0}
             className="btn btn-outline-danger"
             onClick={handleClearClick}
           >
             Clear
-          </div>
+          </button>
 
         </div>
       </div>
