@@ -46,7 +46,7 @@ export default function TexthtmlForm(props) {
 
         <div className="d-flex justify-content-between">
           <div className="btn btn-outline-success" onClick={handleUpClick}>
-            Convert to Uppercase
+            Convert to UpperCase
           </div>
           <div
             className="btn btn-outline-success"
